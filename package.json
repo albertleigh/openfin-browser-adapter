@@ -1,0 +1,11 @@
+{
+  "name": "openfin-browser-adapter",
+  "version": "0.20.10",
+  "description": "browser mockup adapter for openfin js api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
