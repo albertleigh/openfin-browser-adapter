@@ -4,6 +4,10 @@
   "description": "browser mockup adapter for openfin js api",
   "main": "index.js",
   "scripts": {
+    "build":"yarn prebuild && yarn build:es2015 && yarn build:copy-files",
+    "prebuild":"rimraf build",
+    "build:es2015":"tsc src/index.ts --outDir build -d --declarationDir build",
+    "build:copy-files":"node ./scripts/copy-files.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
