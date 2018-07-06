@@ -4,7 +4,7 @@
 [![license][license-badge]][CHANGELOG]
 </div>
 
-Openfin browser adapter is a set of mockup openfin apis in browser environment to assist openfin based app development.
+Openfin browser adapter is a set of mockup openfin apis in browser environment to assist openfin based app developing.
 
 * Written in typescript
 
