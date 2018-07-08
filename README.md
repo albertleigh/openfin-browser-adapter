@@ -1,7 +1,6 @@
-<h1 align="center">Openfin browser adapter</h1>
-<div align="center>
+# Openfin browser adapter
 [![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
-</div>
+
 
 Openfin browser adapter is a set of mockup openfin apis in browser environment to assist openfin based app developing.
 
