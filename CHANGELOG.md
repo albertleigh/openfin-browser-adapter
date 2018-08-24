@@ -1,3 +1,2 @@
-## [0.20.10] 2018-07-04
-- First commit
-- Support minimum basic apis
+## [0.10.5] 2018-08-24
+- Initial stable release
