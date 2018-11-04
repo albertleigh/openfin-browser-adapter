@@ -34,7 +34,7 @@ export class InterApplicationBus extends BaseApiClass{
         }
     }
 
-    static addSubscriberListener(listener:Function){
+    static addSubscribeListener(listener:Function){
         if (!InterApplicationBus.connection){
             console.log('no conneciton');
             return;
