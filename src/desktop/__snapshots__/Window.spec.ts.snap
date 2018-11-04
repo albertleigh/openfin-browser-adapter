@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desktop::Window all unsupported instance methods defined 1`] = `
+Array [
+  "getNativeWindow",
+  "getParentApplication",
+  "addEventListener",
+  "animate",
+  "authenticate",
+  "blur",
+  "bringToFront",
+  "disableFrame",
+  "enableFrame",
+  "executeJavaScript",
+  "flash",
+  "focus",
+  "getAllFrames",
+  "getGroup",
+  "getInfo",
+  "getOptions",
+  "getSnapshot",
+  "getState",
+  "getZoomLevel",
+  "hide",
+  "isShowing",
+  "joinGroup",
+  "leaveGroup",
+  "maximize",
+  "mergeGroups",
+  "minimize",
+  "moveBy",
+  "moveTo",
+  "navigate",
+  "navigateBack",
+  "navigateForward",
+  "reload",
+  "removeEventListener",
+  "resizeBy",
+  "resizeTo",
+  "restore",
+  "setAsForeground",
+  "setBounds",
+  "setZoomLevel",
+  "show",
+  "showAt",
+  "stopFlashing",
+  "stopNavigation",
+  "updateOptions",
+]
+`;
+
+exports[`Desktop::Window all unsupported static methods defined 1`] = `
+Array [
+  "wrap",
+]
+`;

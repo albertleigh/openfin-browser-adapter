@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desktop::Application all unsupported instance methods defined 1`] = `
+Array [
+  "getWindow",
+  "addEventListener",
+  "createFromManifest",
+  "getGroups",
+  "getInfo",
+  "getManifest",
+  "getParentUuid",
+  "getShortcuts",
+  "getTrayIconInfo",
+  "getZoomLevel",
+  "isRunning",
+  "registerUser",
+  "removeEventListener",
+  "removeTrayIcon",
+  "restart",
+  "run",
+  "scheduleRestart",
+  "setShortcuts",
+  "setTrayIcon",
+  "setZoomLevel",
+  "terminate",
+]
+`;
+
+exports[`Desktop::Application all unsupported static methods defined 1`] = `
+Array [
+  "getCurrent",
+  "wrap",
+]
+`;
