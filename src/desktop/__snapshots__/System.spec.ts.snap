@@ -32,7 +32,6 @@ Array [
   "getProxySettings",
   "getRuntimeInfo",
   "getRvmInfo",
-  "getVersion",
   "log",
   "monitorExternalProcess",
   "openUrlWithBrowser",

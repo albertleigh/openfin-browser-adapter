@@ -1,5 +1,3 @@
-import * as io from 'socket.io-client';
-
 import {desktop} from './desktop';
 import {debug as log} from './helper/log';
 import {OpenFinMock} from './OpenFinMock';
@@ -8,33 +6,8 @@ declare const window:any;
 declare const Reflect:any;
 
 export interface BrowserAdapterConfig {
-    userSocket:boolean,
-    socketUrl?:string,
+    silentMode:boolean
 }
-
-const connect = (ns:any, connection:any)=>{
-    log('Connected to websocket echo server.', connection.id);
-
-    ns.InterApplicationBus.connection = connection;
-
-    ns.InterApplicationBus.connection.on('message',(msg:any) => {
-        const {topic, message} = msg;
-
-        log(`Received message on topic "${topic}":`,message);
-
-        if (topic === 'onNotificationMessage' && window.onNotificationMessage){
-            window.onNotificationMessage(message);
-            return;
-        }
-
-        if (Reflect.has(ns.InterApplicationBus.listeners,topic)){
-            ns.InterApplicationBus.listeners[topic].forEach((listener:Function)=>{
-                listener(message);
-            });
-        }
-    });
-    ns.Notification.connection = connection;
-};
 
 export class BrowserAdapter{
 
@@ -45,11 +18,12 @@ export class BrowserAdapter{
     }
 
     constructor({
-        userSocket = true, socketUrl = '//socket-io-echo-server.herokuapp.com'
-                }:BrowserAdapterConfig){
+        silentMode = false,
+    }:BrowserAdapterConfig){
+
+        OpenFinMock.silentMode = silentMode;
 
         window.__openfin_browser_adapter__ = window.__openfin_browser_adapter__ || {};
-        const { opener } = window;
         const result:any = {};
         const classes = Object.keys(desktop).reduce((acc,key)=>{
             const Klass:any = desktop[key];
@@ -66,22 +40,5 @@ export class BrowserAdapter{
         };
 
         this.desktop = {...result,...classes};
-
-        if (!userSocket){
-            return;
-        }
-
-        let connection:any;
-
-        if (!opener){
-            connection = io(socketUrl);
-            window.__openfin_browser_adapter__.iab = connection;
-            connection.on('connect',()=> {
-                connect(this.desktop,connection);
-            });
-        }else{
-            connection = opener.__openfin_browser_adapter__.iab;
-            connect(this.desktop,connection);
-        }
     }
 }

@@ -32,7 +32,6 @@ export class System extends BaseApiClass{
         'getProxySettings',
         'getRuntimeInfo',
         'getRvmInfo',
-        'getVersion',
         'log',
         'monitorExternalProcess',
         'openUrlWithBrowser',

@@ -6,7 +6,6 @@ export class Application extends BaseApiClass{
 
 
     static staticMethods:string[]=[
-        'getCurrent',
         'wrap',
     ];
 

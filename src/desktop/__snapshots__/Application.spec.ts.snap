@@ -28,7 +28,6 @@ Array [
 
 exports[`Desktop::Application all unsupported static methods defined 1`] = `
 Array [
-  "getCurrent",
   "wrap",
 ]
 `;
