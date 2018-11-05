@@ -1,4 +1,6 @@
 import {BaseApiClass} from './Base';
+import {Channel} from "./Channel";
+import {OpenFinMock} from '../OpenFinMock'
 
 declare const Reflect:any;
 
@@ -18,6 +20,8 @@ export class InterApplicationBus extends BaseApiClass{
     static listeners:{[key:string]:Function[]}={};
 
     static connection:any=null;
+
+    static Channel = OpenFinMock.generateMethods('InterApplicationBus.Channel',Channel);
 
     static publish(topic:string, message:string, callback:Function){
         const {connection} = InterApplicationBus;
