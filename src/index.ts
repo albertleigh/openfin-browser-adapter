@@ -1,9 +1,7 @@
 import {desktop} from './desktop';
-import {debug as log} from './helper/log';
 import {OpenFinMock} from './OpenFinMock';
 
 declare const window:any;
-declare const Reflect:any;
 
 export interface BrowserAdapterConfig {
     silentMode:boolean

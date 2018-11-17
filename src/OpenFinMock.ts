@@ -1,5 +1,3 @@
-import {BaseApiClass} from './desktop/Base';
-
 export class OpenFinMock{
 
     static silentMode:boolean = false;

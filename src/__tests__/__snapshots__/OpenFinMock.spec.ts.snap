@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpenFinMock silentMode off 1`] = `[Function]`;
+
+exports[`OpenFinMock silentMode off 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[OpenFinMock] Warning! Attempt to overwrite already implemented static methods:\`testClz.staticMethodImpl\`. This method will not be overwritten. Remove this method from \`testClz.staticMethods\`.",
+    ],
+    Array [
+      "[OpenFinMock] Warning! Attemp to overwrite already implemented instance method: \`testClz#instanceMethodImpl\`.
+                    This method will not be overwritten. Remove this method from \`testClz.instanceMethods\`.       
+                ",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`OpenFinMock silentMode off 3`] = `[Function]`;
