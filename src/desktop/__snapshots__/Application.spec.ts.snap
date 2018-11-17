@@ -31,3 +31,5 @@ Array [
   "wrap",
 ]
 `;
+
+exports[`Desktop::Application getCurrent 1`] = `Application {}`;
