@@ -7,23 +7,41 @@ export class System extends BaseApiClass{
         'addEventListener',
         'clearCache',
         'deleteCacheOnExit',
+        'downloadAsset',
+        'downloadPreloadScripts',
+        'downloadRuntime',
         'exit',
+        'flushCookieStore',
         'getAllApplications',
+        'getAllExternalApplications',
         'getAllWindows',
+        'getAppAssetInfo',
         'getCommandLineArguments',
-        'getDeviceId',
+        'getCookies',
+        'getCrashReporterState',
         'getDeviceUserId',
+        'getEntityInfo',
         'getEnvironmentVariable',
+        'getFocusedWindow',
         'getLog',
         'getLogList',
+        'getMachineId',
+        'getMinLogLevel',
         'getMousePosition',
         'getProcessList',
         'getProxySettings',
+        'getRuntimeInfo',
+        'getRvmInfo',
         'log',
+        'monitorExternalProcess',
         'openUrlWithBrowser',
+        'readRegistryValue',
         'registerExternalConnection',
         'releaseExternalProcess',
         'removeEventListener',
+        'setMinLogLevel',
+        'showDeveloperTools',
+        'startCrashReporter',
         'terminateExternalProcess',
         'updateProxySettings',
     ];
@@ -49,29 +67,29 @@ export class System extends BaseApiClass{
         if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
         if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
 
-        if ((verOffset = nAgt.indexOf("Opera")!=-1)){
+        if ((verOffset = nAgt.indexOf("Opera"))!=-1){
             browserName = "Opera";
             fullVersion = nAgt.substring(verOffset+6);
-            if((verOffset=nAgt.indexOf("Version")!=-1)){
+            if((verOffset=nAgt.indexOf("Version"))!=-1){
                 fullVersion = nAgt.substring(verOffset+8);
             }
         }
-        else if((verOffset=nAgt.indexOf("MSIE")!=-1)){
+        else if((verOffset=nAgt.indexOf("MSIE"))!=-1){
             browserName = "Microsoft Internet Explorer";
             fullVersion = nAgt.substring(verOffset+5);
         }
-        else if((verOffset=nAgt.indexOf("Chrome")!=-1)){
+        else if((verOffset=nAgt.indexOf("Chrome"))!=-1){
             browserName = "Chrome";
             fullVersion = nAgt.substring(verOffset+7);
         }
-        else if((verOffset=nAgt.indexOf("Safari")!=-1)){
+        else if((verOffset=nAgt.indexOf("Safari"))!=-1){
             browserName = "Safari";
             fullVersion = nAgt.substring(verOffset+7);
-            if ((verOffset=nAgt.indexOf("Version")!=-1)){
+            if ((verOffset=nAgt.indexOf("Version"))!=-1){
                 fullVersion = nAgt.substring(verOffset+8);
             }
         }
-        else if((verOffset=nAgt.indexOf("Firefox")!=-1)){
+        else if((verOffset=nAgt.indexOf("Firefox"))!=-1){
             browserName = "Firefox";
             fullVersion = nAgt.substring(verOffset+8);
         }

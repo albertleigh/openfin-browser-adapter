@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desktop::Channel all unsupported instance methods defined 1`] = `Array []`;
+
+exports[`Desktop::Channel all unsupported static methods defined 1`] = `
+Array [
+  "onChannelConnect",
+  "onChannelDisconnect",
+]
+`;
+
+exports[`Desktop::Channel connect 1`] = `ChannelClient {}`;
+
+exports[`Desktop::Channel create 1`] = `ChannelProvider {}`;

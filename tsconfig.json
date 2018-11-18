@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "target":"es5",
-    "lib":["es5","es6","dom"],
-    "sourceMap":true,
-    "module": "ES6",
-    "jsx":"react",
+    "outDir": "./build",
+    "declaration": true,
+    "declarationDir": "./build",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5","es6","dom"],
     "experimentalDecorators": true,
     "removeComments":true,
     "preserveConstEnums": true,
@@ -14,19 +16,16 @@
     "allowJs": false,
     "noImplicitAny": true
   },
-  "files": [
-    "core.ts",
-    "sys.ts",
-    "types.ts",
-    "scanner.ts",
-    "parser.ts",
-    "utilities.ts",
-    "binder.ts",
-    "checker.ts",
-    "emitter.ts",
-    "program.ts",
-    "commandLineParser.ts",
-    "tsc.ts",
-    "diagnosticInformationMap.generated.ts"
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "config",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest"
   ]
 }
