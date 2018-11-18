@@ -1,6 +1,6 @@
 {
   "name": "@albertli90/openfin-browser-adapter",
-  "version": "0.20.1-beta",
+  "version": "0.20.10",
   "description": "browser mockup adapter for openfin js api",
   "keywords":["openfin","browser adapter","adapter","albert"],
   "main": "index.js",
