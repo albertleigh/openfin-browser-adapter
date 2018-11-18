@@ -10,18 +10,28 @@ export class Application extends BaseApiClass{
     ];
 
     static instanceMethods :string[]=[
-        'addEventListener',
-        'getGroups',
-        'getManifest',
         'getWindow',
+
+        'addEventListener',
+        'createFromManifest',
+        'getGroups',
+        'getInfo',
+        'getManifest',
+        'getParentUuid',
+        'getShortcuts',
+        'getTrayIconInfo',
+        'getZoomLevel',
         'isRunning',
+        'registerUser',
         'removeEventListener',
         'removeTrayIcon',
         'restart',
         'run',
+        'scheduleRestart',
+        'setShortcuts',
         'setTrayIcon',
+        'setZoomLevel',
         'terminate',
-        'wait',
     ];
 
     //http://cdn.openfin.co/jsdocs/beta/fin.desktop.Application.html#.getCurrent
@@ -45,7 +55,7 @@ export class Application extends BaseApiClass{
     }
 
     //http://cdn.openfin.co/jsdocs/beta/fin.desktop.Application.html#getChildWindows
-    getChildWindow(callback:Function, errorCallback:Function){
+    getChildWindows(callback:Function, errorCallback:Function){
         if (callback){
             setTimeout(()=>{
                 try{

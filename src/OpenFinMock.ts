@@ -1,6 +1,6 @@
-import {BaseApiClass} from './desktop/Base';
-
 export class OpenFinMock{
+
+    static silentMode:boolean = false;
 
     static generateMethods(name:string,Klass:any){
 
@@ -23,11 +23,12 @@ export class OpenFinMock{
                 if (args.length>1 && typeof args[args.length-2]=== 'function'){
                     args[args.length-2]();
                 }
-
-                console.info(`[OpenFinMock] Static method \`${name}.${method}\` not implemented. 
-                    ${argsMsg} This method will not return anything, which will probably have unintended consequence.
-                    Implement this method on the \`${name}\` class to return a value.               
-                `);
+                if (!OpenFinMock.silentMode){
+                    console.info(`[OpenFinMock] Static method \`${name}.${method}\` not implemented. 
+                        ${argsMsg} This method will not return anything, which will probably have unintended consequence.
+                        Implement this method on the \`${name}\` class to return a value.               
+                    `);
+                }
             }
         }
 
@@ -49,11 +50,12 @@ export class OpenFinMock{
                 if (args.length>1 && typeof args[args.length-2]=== 'function'){
                     args[args.length-2]();
                 }
-
-                console.info(`[OpenFinMock] Instance method \`${name}.${method}\` not implemented. 
-                    ${argsMsg} This method will not return anything, which will probably have unintended consequence.
-                    Implement this method on the \`${name}\` class to return a value.               
-                `);
+                if (!OpenFinMock.silentMode){
+                    console.info(`[OpenFinMock] Instance method \`${name}.${method}\` not implemented. 
+                        ${argsMsg} This method will not return anything, which will probably have unintended consequence.
+                        Implement this method on the \`${name}\` class to return a value.               
+                    `);
+                }
 
             }
         }
