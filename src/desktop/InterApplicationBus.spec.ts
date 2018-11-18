@@ -16,4 +16,8 @@ describe('Desktop::InterApplicationBus',()=>{
         expect(clazz.instanceMethods).toMatchSnapshot();
     })
 
+    it('Channel class',()=>{
+        expect(clazz.Channel).toMatchSnapshot();
+    })
+
 });

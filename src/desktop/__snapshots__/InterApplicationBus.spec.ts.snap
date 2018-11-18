@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Desktop::InterApplicationBus Channel class 1`] = `[Function]`;
+
 exports[`Desktop::InterApplicationBus all unsupported instance methods defined 1`] = `Array []`;
 
 exports[`Desktop::InterApplicationBus all unsupported static methods defined 1`] = `

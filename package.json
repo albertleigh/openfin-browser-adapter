@@ -33,6 +33,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,js,jsx,mjs}",
+      "!src/desktop/index.ts",
       "!src/index.ts"
     ],
     "setupFiles": [],
