@@ -2,6 +2,7 @@
   "name": "@albertli90/openfin-browser-adapter",
   "version": "0.20.1-beta",
   "description": "browser mockup adapter for openfin js api",
+  "keywords":["openfin","browser adapter","adapter","albert"],
   "main": "index.js",
   "scripts": {
     "build": "yarn prebuild && yarn build:es2015 && yarn build:copy-files",
@@ -9,7 +10,12 @@
     "build:es2015": "tsc",
     "build:copy-files": "node ./scripts/copy-files.js",
     "release-staging": "yarn build && npm publish build --registry=https://albertli.ddns.net:9004/repository/npm-private/",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "release":"yarn build && npm publish build --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@albertli.ddns.net:open-fin/openfin-browser-adapter.git"
   },
   "author": {
     "name": "Wentao Li",
