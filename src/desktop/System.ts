@@ -104,10 +104,17 @@ export class System extends BaseApiClass{
                 monitorRect:{
                     bottom:screen.height,
                     left:0,
-                    right:screen.height,
+                    right:screen.width,
+                    top:0,
+                },
+                availableRect:{
+                    bottom:screen.height,
+                    left:0,
+                    right:screen.width,
                     top:0,
                 }
-            }
+            },
+            nonPrimaryMonitors:[],
         });
     }
 

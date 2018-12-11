@@ -4,6 +4,7 @@ import {OpenFinMock} from './OpenFinMock';
 declare const window:any;
 
 export interface BrowserAdapterConfig {
+    finUuic:string,
     silentMode:boolean
 }
 
@@ -16,8 +17,11 @@ export class BrowserAdapter{
     }
 
     constructor({
+        finUuic,
         silentMode = false,
     }:BrowserAdapterConfig){
+
+        window.name=finUuic;
 
         OpenFinMock.silentMode = silentMode;
 
