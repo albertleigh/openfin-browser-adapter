@@ -30,7 +30,7 @@ export class BrowserAdapter{
         const classes = Object.keys(desktop).reduce((acc,key)=>{
             const Klass:any = desktop[key];
             return {
-                ...acc,[Klass.name]:OpenFinMock.generateMethods(key,Klass),
+                ...acc,[key]:OpenFinMock.generateMethods(key,Klass),
             };
         },{});
 
