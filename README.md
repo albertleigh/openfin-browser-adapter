@@ -24,7 +24,10 @@ Openfin browser adapter is a set of mockup openfin apis in browser environment t
     // if not it means we are at browser environment,
     // thus use browser-adapter instead to mockup openfin js apis
     if(!window.fin){
-        window.fin = new BrowserAdapter({userSocket:false});
+        window.fin = new BrowserAdapter({
+            finUuid:process.env.REACT_APP_FIN_UUID,     // fin app uuid injected via dotenv
+            silentMode:false,                           // log function calls to console or not
+        });
     }
 
 ```
@@ -40,5 +43,5 @@ Most up to the release date apis should be supported.
 [LICENSE]: ./LICENSE.md
 [CHANGELOG]: ./CHANGELOG.md
 
-[version-badge]: https://img.shields.io/badge/version-0.30.10-blue.svg
+[version-badge]: https://img.shields.io/badge/version-0.35.2beta-blue.svg
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
