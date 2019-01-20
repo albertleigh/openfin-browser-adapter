@@ -14,7 +14,7 @@
     "build:copy-files": "node ./scripts/copy-files.js",
     "release-staging": "yarn build && npm publish build --registry=https://albertli.ddns.net:9004/repository/npm-private/",
     "test": "node scripts/test.js",
-    "release":"yarn build && npm publish build-prod --access public"
+    "release":"yarn build-prod && npm publish build --access public"
   },
   "repository": {
     "type": "git",
