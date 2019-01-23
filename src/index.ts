@@ -4,6 +4,7 @@ import {OpenFinMock} from './OpenFinMock';
 declare const window:any;
 
 export interface BrowserAdapterConfig {
+    finUuid:string,
     silentMode:boolean
 }
 
@@ -16,8 +17,11 @@ export class BrowserAdapter{
     }
 
     constructor({
+        finUuid,
         silentMode = false,
     }:BrowserAdapterConfig){
+
+        window.name=finUuid;
 
         OpenFinMock.silentMode = silentMode;
 
@@ -26,7 +30,7 @@ export class BrowserAdapter{
         const classes = Object.keys(desktop).reduce((acc,key)=>{
             const Klass:any = desktop[key];
             return {
-                ...acc,[Klass.name]:OpenFinMock.generateMethods(key,Klass),
+                ...acc,[key]:OpenFinMock.generateMethods(key,Klass),
             };
         },{});
 
