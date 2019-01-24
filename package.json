@@ -1,6 +1,6 @@
 {
-  "name": "@albertli90/openfin-browser-adapter",
-  "version": "0.35.20",
+  "name": "openfin-browser-adapter",
+  "version": "0.35.21",
   "homepage": "https://albertleigh.github.io/openfin-react-latest",
   "description": "browser mockup adapter for openfin js api",
   "keywords":["openfin","browser adapter","adapter","albert"],
