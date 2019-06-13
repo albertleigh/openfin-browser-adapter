@@ -6,67 +6,69 @@ export class Application extends BaseApiClass{
 
 
     static staticMethods:string[]=[
+        // 'getCurrent',
+        'start',
+        'startFromManifest',
         'wrap',
     ];
 
-    static instanceMethods :string[]=[
-        'getWindow',
+    static staticSyncMethods:string[]=[
+        'getCurrentSync',
+        'wrapSync',
+    ];
 
-        'addEventListener',
-        'createFromManifest',
+    static instanceMethods :string[]=[
+        'addListener',
+        // 'getChildWindows',
         'getGroups',
         'getInfo',
         'getManifest',
         'getParentUuid',
         'getShortcuts',
         'getTrayIconInfo',
+        'getWindow',
         'getZoomLevel',
         'isRunning',
+        'on',
+        'once',
+        'prependListener',
+        'prependOnceListener',
+        'quit',
         'registerUser',
-        'removeEventListener',
+        'removeAllListeners',
+        'removeListener',
         'removeTrayIcon',
         'restart',
         'run',
         'scheduleRestart',
+        'sendApplicationLog',
+        'setAppLogUsername',
         'setShortcuts',
         'setTrayIcon',
         'setZoomLevel',
         'terminate',
     ];
 
-    //http://cdn.openfin.co/jsdocs/beta/fin.desktop.Application.html#.getCurrent
-    static getCurrent(){
+    static async getCurrent():Promise<Application>{
+        return new Application();
+    }
+
+    static getCurrentSync(){
         return new Application();
     }
 
 
-    //http://cdn.openfin.co/jsdocs/beta/fin.desktop.Application.html#close
-    close(force:boolean, callback:Function, errorCallback:Function){
-        try{
+    async terminate(force:boolean){
+        return new Promise<void>((resolve)=>{
             window.close();
-            if(callback){
-                callback();
-            }
-        }catch (e) {
-            if (e){
-                errorCallback(e);
-            }
-        }
+            resolve();
+        })
     }
 
-    //http://cdn.openfin.co/jsdocs/beta/fin.desktop.Application.html#getChildWindows
-    getChildWindows(callback:Function, errorCallback:Function){
-        if (callback){
-            setTimeout(()=>{
-                try{
-                    callback(Object.keys(windowRegistry).map(key=>(windowRegistry[key])));
-                }catch (e) {
-                    if (e){
-                        errorCallback(e);
-                    }
-                }
-            },0);
-        }
+    async getChildWindows(){
+        return new Promise<any>((resolve)=>{
+            resolve(Object.keys(windowRegistry).map(key=>(windowRegistry[key])))
+        })
     }
 
 }
