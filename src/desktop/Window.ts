@@ -24,31 +24,44 @@ export class Window extends BaseApiClass{
     name:string;
 
     static staticMethods:string[]=[
-        'wrap'
+        'create',
+        // 'getCurrent',
+        'wrap',
+    ];
+
+    static staticSyncMethods:string[]=[
+        'getCurrentSync',
+        'wrapSync'
     ];
 
     static instanceMethods:string[]=[
-        'getNativeWindow',
-        'getParentApplication',
 
-        'addEventListener',
+        // 'getParentApplication',
+
+        'addListener',
         'animate',
         'authenticate',
         'blur',
         'bringToFront',
-        'disableFrame',
-        'enableFrame',
+        // 'close',
+        'disableUserMovement',
+        'enableUserMovement',
         'executeJavaScript',
         'flash',
         'focus',
         'getAllFrames',
+        // 'getBounds',
         'getGroup',
         'getInfo',
+        'getNativeId',
         'getOptions',
-        'getSnapshot',
+        'getParentApplication',
+        // 'getParentWindow',
         'getState',
+        'getWebWindow',
         'getZoomLevel',
         'hide',
+        'isMainWindow',
         'isShowing',
         'joinGroup',
         'leaveGroup',
@@ -59,9 +72,13 @@ export class Window extends BaseApiClass{
         'moveTo',
         'navigate',
         'navigateBack',
-        'navigateForward',
+        'on',
+        'once',
+        'prependListener',
+        'prependOnceListener',
         'reload',
-        'removeEventListener',
+        'removeAllListeners',
+        'removeListener',
         'resizeBy',
         'resizeTo',
         'restore',
@@ -70,9 +87,14 @@ export class Window extends BaseApiClass{
         'setZoomLevel',
         'show',
         'showAt',
+        'showDeveloperTools',
         'stopFlashing',
         'stopNavigation',
         'updateOptions',
+    ];
+
+    static staticInstanceMethods:string[]=[
+        'navigateForward',
     ];
 
 

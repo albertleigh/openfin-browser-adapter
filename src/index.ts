@@ -10,11 +10,16 @@ export interface BrowserAdapterConfig {
 
 export class BrowserAdapter{
 
-    desktop:{
-        InterApplicationBus:any,
-        Notification:any,
-        main:(f:()=>any)=>any | null;
-    }
+    Application:any;
+    ExternalApplication:any;
+    Frame:any;
+    Notification:any;
+    Window:any;
+    Clipboard:any;
+    GlobalHotkey:any;
+    InterApplicationBus:any;
+    System:any;
+    main:(f:()=>any)=>any | null;
 
     constructor({
         finUuid,
@@ -41,6 +46,14 @@ export class BrowserAdapter{
             return null;
         };
 
-        this.desktop = {...result,...classes};
+        for (let key in desktop){
+            // @ts-ignore
+            this[key] = desktop[key];
+        }
+
+        for (let key in result){
+            // @ts-ignore
+            this[key] = result[key];
+        }
     }
 }

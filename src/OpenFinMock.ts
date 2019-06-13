@@ -13,16 +13,13 @@ export class OpenFinMock{
                 continue;
             }
 
-            Klass[method] = (...args:any[])=>{
+            Klass[method] = async (...args:any[])=>{
                 let argsMsg = '';
 
                 if (args.length){
                     argsMsg = `This method also received the arguments: ${JSON.stringify(args,null,2)}`;
                 }
 
-                if (args.length>1 && typeof args[args.length-2]=== 'function'){
-                    args[args.length-2]();
-                }
                 if (!OpenFinMock.silentMode){
                     console.info(`[OpenFinMock] Static method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
@@ -40,16 +37,13 @@ export class OpenFinMock{
                 continue;
             }
 
-            Klass.prototype[method] = (...args:any[]) => {
+            Klass.prototype[method] = async (...args:any[]) => {
                 let argsMsg = '';
 
                 if (args.length){
                     argsMsg = `This method also received the arguments: ${JSON.stringify(args,null,2)}`;
                 }
 
-                if (args.length>1 && typeof args[args.length-2]=== 'function'){
-                    args[args.length-2]();
-                }
                 if (!OpenFinMock.silentMode){
                     console.info(`[OpenFinMock] Instance method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
