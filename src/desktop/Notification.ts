@@ -11,16 +11,20 @@ export class Notification extends BaseApiClass{
         'getCurrent',
     ];
 
+    static staticSyncMethods:string[]=[
+    ];
+
     static instanceMethods:string[]=[
         'close',
         'sendMessage',
+        'show',
         'sendMessageToApplication',
     ];
 
     static connection:any=null;
 
 
-    constructor(options:NotificationOptions,callback?:Function) {
+    constructor(options:NotificationOptions) {
         super();
         if(options && options.url){
             window.open(options.url,'_blank');
@@ -31,9 +35,9 @@ export class Notification extends BaseApiClass{
                 Notification.connection.send({topic:'onNotificationMessage',message:options.message});
             }
         },500);
+    }
 
-        if (callback){
-            setTimeout(callback,0);
-        }
+    async create(options:NotificationOptions){
+        return new Notification(options);
     }
 }

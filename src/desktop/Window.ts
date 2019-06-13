@@ -126,6 +126,10 @@ export class Window extends BaseApiClass{
         windowRegistry[data.name] = this;
     }
 
+    async create(data:WindowOptions):Promise<Window>{
+        return new Window(data);
+    }
+
     async close(force?:boolean):Promise<void>{
         this.contentWindow.close();
         return;
