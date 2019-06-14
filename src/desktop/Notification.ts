@@ -37,7 +37,7 @@ export class Notification extends BaseApiClass{
         },500);
     }
 
-    async create(options:NotificationOptions){
+    static async create(options:NotificationOptions){
         return new Notification(options);
     }
 }

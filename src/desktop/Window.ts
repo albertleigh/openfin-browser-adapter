@@ -24,7 +24,7 @@ export class Window extends BaseApiClass{
     name:string;
 
     static staticMethods:string[]=[
-        'create',
+        // 'create',
         // 'getCurrent',
         'wrap',
     ];
@@ -126,7 +126,7 @@ export class Window extends BaseApiClass{
         windowRegistry[data.name] = this;
     }
 
-    async create(data:WindowOptions):Promise<Window>{
+    static async create(data:WindowOptions):Promise<Window>{
         return new Window(data);
     }
 
