@@ -4,7 +4,7 @@ import {BaseApiClass} from './Base';
 export class System extends BaseApiClass{
 
     static staticMethods:string[]=[
-        'addEventListener',
+        'addListener',
         'clearCache',
         'deleteCacheOnExit',
         'downloadAsset',
@@ -23,22 +23,32 @@ export class System extends BaseApiClass{
         'getEntityInfo',
         'getEnvironmentVariable',
         'getFocusedWindow',
+        // 'getHostSpecs',
         'getLog',
         'getLogList',
         'getMachineId',
         'getMinLogLevel',
+        'getMonitorInfo',
         'getMousePosition',
         'getProcessList',
         'getProxySettings',
         'getRuntimeInfo',
         'getRvmInfo',
+        // 'getVersion',
+        'launchExternalProcess',
         'log',
         'monitorExternalProcess',
+        'on',
+        'once',
         'openUrlWithBrowser',
+        'prependListener',
+        'prependOnceListener',
         'readRegistryValue',
         'registerExternalConnection',
         'releaseExternalProcess',
+        'removeAllListeners',
         'removeEventListener',
+        'resolveUuid',
         'setMinLogLevel',
         'showDeveloperTools',
         'startCrashReporter',
@@ -48,11 +58,11 @@ export class System extends BaseApiClass{
 
     static instanceMethods:string[]=[];
 
-    static getVersion(success?:Function,error?:Function){
-        success(VERSION);
+    static async getVersion(){
+        return VERSION;
     }
 
-    static getHostSpecs(success?:Function,error?:Function){
+    static async getHostSpecs(){
 
         let OSName = "Unknown OS";
         let nVer = navigator.appVersion;
@@ -94,12 +104,12 @@ export class System extends BaseApiClass{
             fullVersion = nAgt.substring(verOffset+8);
         }
 
-        success({OSName, browserName, fullVersion, appVersion:navigator.appVersion});
+        return {OSName, browserName, fullVersion, appVersion:navigator.appVersion};
 
     }
 
-    static getMonitorInfo(success?:Function,error?:Function){
-        success({
+    static async getMonitorInfo(){
+        return {
             primaryMonitor:{
                 monitorRect:{
                     bottom:screen.height,
@@ -115,14 +125,10 @@ export class System extends BaseApiClass{
                 }
             },
             nonPrimaryMonitors:[],
-        });
+        } as any;
     }
 
-    static launchExternalProcess(options:any,success?:Function, error?:Function){
-        if (error){
-            setTimeout(()=>{
-                error();
-            },0)
-        }
+    static async launchExternalProcess(options:any){
+        return
     }
 }
