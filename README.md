@@ -5,7 +5,7 @@
 Openfin browser adapter is a set of mockup openfin apis in browser environment to assist openfin based app developing/testing.
 
 * Written in typescript
-* Support openfin api js v9.61.38.40
+* Support openfin api v2 js v10.66.41.18
 
 ![](https://albertleigh.github.io/openfin-react-latest/img/screenshoot.gif)
 
@@ -44,5 +44,5 @@ Openfin browser adapter is a set of mockup openfin apis in browser environment t
 [LICENSE]: ./LICENSE.md
 [CHANGELOG]: ./CHANGELOG.md
 
-[version-badge]: https://img.shields.io/badge/version-0.35.21-blue.svg
+[version-badge]: https://img.shields.io/badge/version-1.0.0-blue.svg
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
