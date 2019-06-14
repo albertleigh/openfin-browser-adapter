@@ -1,14 +1,23 @@
 import {BaseApiClass} from './Base';
 
 export class ChannelProvider extends BaseApiClass{
+
     static staticMethods:string[]=[
     ];
 
+    static staticSyncMethods:string[]=[
+    ];
+
+
     static instanceMethods:string[]=[
-        'register',
-        'publish',
-        'remove',
         'dispatch',
+    ];
+
+    static instanceSyncMethods:string[]=[
+        'destroy',
+        'publish',
+        'register',
+        'remove',
         'setDefaultAction',
         'onError',
         'beforeAction',

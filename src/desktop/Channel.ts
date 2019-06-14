@@ -8,8 +8,6 @@ const _ChannelClient = OpenFinMock.generateMethods('InterApplicationBus.Channel#
 
 export class Channel extends BaseApiClass{
 
-
-
     static staticMethods:string[]=[
         'onChannelConnect',
         'onChannelDisconnect',
@@ -17,16 +15,12 @@ export class Channel extends BaseApiClass{
 
     static instanceMethods:string[]=[];
 
-    static create(){
-        return new Promise((resolve,reject)=>{
-            resolve(new _ChannelProvider())
-        })
+    static async create(){
+        return new _ChannelProvider();
     }
 
-    static connect(){
-        return new Promise((resolve,reject)=>{
-            resolve(new _ChannelClient())
-        })
+    static async connect(){
+        return new _ChannelClient();
     }
 
 }
