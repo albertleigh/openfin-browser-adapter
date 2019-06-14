@@ -26,7 +26,7 @@ export class InterApplicationBus extends BaseApiClass{
 
     static Channel = OpenFinMock.generateMethods('InterApplicationBus.Channel',Channel);
 
-    static publish(topic:string, message:string, callback?:Function,errCallback?:Function){
+    static async publish(topic:string, message:string){
 
         if(InterApplicationBus.listeners[topic]){
             InterApplicationBus.listeners[topic].forEach((topicCb:TopicSubscribeListener)=>{
@@ -36,18 +36,19 @@ export class InterApplicationBus extends BaseApiClass{
         InterApplicationBus.subscribeListeners.forEach((cb:SubscribeListener)=>{
             cb('',topic,'')
         });
-        callback();
+
+        return;
 
     }
 
-    static addSubscribeListener(listener:SubscribeListener){
+    static async addSubscribeListener(listener:SubscribeListener){
         InterApplicationBus.subscribeListeners.push(listener);
+        return;
     }
 
-    static subscribe(
+    static async subscribe(
         senderUuid:string,name:string,topic:string,
-        listener:TopicSubscribeListener,
-        callback?:Function,errCallback?:Function
+        listener:TopicSubscribeListener
     ){
 
         if (!InterApplicationBus.listeners[topic]){
@@ -55,9 +56,7 @@ export class InterApplicationBus extends BaseApiClass{
         }
 
         InterApplicationBus.listeners[topic].push(listener);
-
-        callback();
-
+        return;
     }
 
 }
