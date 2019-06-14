@@ -1,6 +1,6 @@
 {
   "name": "openfin-browser-adapter",
-  "version": "1.0.0-beta.13",
+  "version": "1.0.0-beta.20",
   "homepage": "https://www.albertli90.com/openfin-react-latest",
   "description": "browser mockup adapter for openfin js api",
   "keywords":["openfin","browser adapter","adapter","albert"],

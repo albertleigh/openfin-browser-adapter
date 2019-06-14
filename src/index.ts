@@ -1,5 +1,5 @@
-import {desktop} from './desktop';
-import {OpenFinMock} from './OpenFinMock';
+import {desktop} from './root';
+import {OpenFinMockV2} from './OpenFinMockV2';
 
 declare const window:any;
 
@@ -28,14 +28,14 @@ export class BrowserAdapter{
 
         window.name=finUuid;
 
-        OpenFinMock.silentMode = silentMode;
+        OpenFinMockV2.silentMode = silentMode;
 
         window.__openfin_browser_adapter__ = window.__openfin_browser_adapter__ || {};
         const result:any = {};
         const classes = Object.keys(desktop).reduce((acc,key)=>{
             const Klass:any = desktop[key];
             return {
-                ...acc,[key]:OpenFinMock.generateMethods(key,Klass),
+                ...acc,[key]:OpenFinMockV2.generateMethods(key,Klass),
             };
         },{});
 

@@ -1,6 +1,6 @@
 import {BaseApiClass} from './Base';
 import {Channel} from "./Channel";
-import {OpenFinMock} from '../OpenFinMock'
+import {OpenFinMockV2} from '../OpenFinMockV2'
 
 declare const Reflect:any;
 
@@ -24,7 +24,7 @@ export class InterApplicationBus extends BaseApiClass{
 
     // static connection:any=null;
 
-    static Channel = OpenFinMock.generateMethods('InterApplicationBus.Channel',Channel);
+    static Channel = OpenFinMockV2.generateMethods('InterApplicationBus.Channel',Channel);
 
     static async publish(topic:string, message:string){
 

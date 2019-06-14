@@ -1,4 +1,4 @@
-export class OpenFinMock{
+export class OpenFinMockV2{
 
     static silentMode:boolean = false;
 
@@ -22,7 +22,7 @@ export class OpenFinMock{
                     argsMsg = `This method also received the arguments: ${JSON.stringify(args,null,2)}`;
                 }
 
-                if (!OpenFinMock.silentMode){
+                if (!OpenFinMockV2.silentMode){
                     console.info(`[OpenFinMock] Static method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
                         Implement this method on the \`${name}\` class to return a value.               
@@ -48,7 +48,7 @@ export class OpenFinMock{
                     args[args.length-2]();
                 }
 
-                if (!OpenFinMock.silentMode){
+                if (!OpenFinMockV2.silentMode){
                     console.info(`[OpenFinMock] Static method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
                         Implement this method on the \`${name}\` class to return a value.               
@@ -72,7 +72,7 @@ export class OpenFinMock{
                     argsMsg = `This method also received the arguments: ${JSON.stringify(args,null,2)}`;
                 }
 
-                if (!OpenFinMock.silentMode){
+                if (!OpenFinMockV2.silentMode){
                     console.info(`[OpenFinMock] Instance method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
                         Implement this method on the \`${name}\` class to return a value.               
@@ -101,7 +101,7 @@ export class OpenFinMock{
                     args[args.length-2]();
                 }
 
-                if (!OpenFinMock.silentMode){
+                if (!OpenFinMockV2.silentMode){
                     console.info(`[OpenFinMock] Instance method \`${name}.${method}\` not implemented. 
                         ${argsMsg} This method will not return anything, which will probably have unintended consequence.
                         Implement this method on the \`${name}\` class to return a value.               
