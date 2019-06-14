@@ -1,18 +1,24 @@
 import {Application} from './Application'
+import {ExternalApplication} from './ExternalApplication'
+import {Frame} from './Frame'
+import {Notification} from './Notification'
+import {Window} from './Window'
+import {Clipboard} from './Clipboard'
 import {GlobalHotkey} from './GlobalHotkey'
 import {InterApplicationBus} from './InterApplicationBus'
-import {Notification} from './Notification'
 import {System} from './System'
-import {Window} from './Window'
 import {BaseApiClass} from './Base'
 
 export type BaseApiDict={[key:string]:BaseApiClass};
 
 export const desktop:BaseApiDict={
     Application:Application,
+    ExternalApplication:ExternalApplication,
+    Frame:Frame,
+    Notification:Notification,
+    Window:Window,
+    Clipboard:Clipboard,
     GlobalHotkey:GlobalHotkey,
     InterApplicationBus:InterApplicationBus,
-    Notification:Notification,
     System:System,
-    Window:Window,
 };
