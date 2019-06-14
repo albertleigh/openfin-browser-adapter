@@ -24,7 +24,7 @@ export class Window extends BaseApiClass{
     name:string;
 
     static staticMethods:string[]=[
-        'wrap'
+        // 'wrap'
     ];
 
     static instanceMethods:string[]=[
@@ -74,6 +74,14 @@ export class Window extends BaseApiClass{
         'stopNavigation',
         'updateOptions',
     ];
+
+
+    static wrap(appUuid:string, windowName:string){
+        if (!windowRegistry[windowName]){
+            windowRegistry[windowName] = new Window({name:windowName},()=>{})
+        }
+        return windowRegistry[windowName];
+    }
 
 
     static getCurrent(){
