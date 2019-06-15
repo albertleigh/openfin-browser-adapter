@@ -21,7 +21,10 @@ export class Window extends BaseApiClass{
     static _name:string = null;
 
     contentWindow:any;
-    name:string;
+    identity:{
+        uuid:string,
+        name:string,
+    };
 
     static staticMethods:string[]=[
         // 'create',
@@ -122,7 +125,8 @@ export class Window extends BaseApiClass{
             opened = window.open(data.url,'_blank');
         }
         this.contentWindow = opened || window;
-        this.name = data.name;
+        this.identity.uuid = window.name;
+        this.identity.name = data.name;
         windowRegistry[data.name] = this;
     }
 
