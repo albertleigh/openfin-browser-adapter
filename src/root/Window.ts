@@ -125,8 +125,10 @@ export class Window extends BaseApiClass{
             opened = window.open(data.url,'_blank');
         }
         this.contentWindow = opened || window;
-        this.identity.uuid = window.name;
-        this.identity.name = data.name;
+        this.identity = {
+            uuid: window.name,
+            name: data.name,
+        };
         windowRegistry[data.name] = this;
     }
 
