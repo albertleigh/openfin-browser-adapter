@@ -1,7 +1,7 @@
 import mockConsole from 'jest-mock-console';
 
-import { BaseApiClass } from '../desktop/Base';
-import { OpenFinMock } from '../OpenFinMock';
+import { BaseApiClass } from '../root/Base';
+import { OpenFinMockV2 } from '../OpenFinMockV2';
 
 describe('OpenFinMock',()=>{
 
@@ -44,7 +44,7 @@ describe('OpenFinMock',()=>{
 
         }
 
-        const TargetClz = OpenFinMock.generateMethods('testClz',SampleClass);
+        const TargetClz = OpenFinMockV2.generateMethods('testClz',SampleClass);
 
         TargetClz.staticMethodCalled(()=>{},()=>{});
 

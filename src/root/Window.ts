@@ -21,34 +21,50 @@ export class Window extends BaseApiClass{
     static _name:string = null;
 
     contentWindow:any;
-    name:string;
+    identity:{
+        uuid:string,
+        name:string,
+    };
 
     static staticMethods:string[]=[
-        // 'wrap'
+        // 'create',
+        // 'getCurrent',
+        'wrap',
+    ];
+
+    static staticSyncMethods:string[]=[
+        'getCurrentSync',
+        'wrapSync'
     ];
 
     static instanceMethods:string[]=[
-        'getNativeWindow',
-        'getParentApplication',
 
-        'addEventListener',
+        // 'getParentApplication',
+
+        'addListener',
         'animate',
         'authenticate',
         'blur',
         'bringToFront',
-        'disableFrame',
-        'enableFrame',
+        // 'close',
+        'disableUserMovement',
+        'enableUserMovement',
         'executeJavaScript',
         'flash',
         'focus',
         'getAllFrames',
+        // 'getBounds',
         'getGroup',
         'getInfo',
+        'getNativeId',
         'getOptions',
-        'getSnapshot',
+        'getParentApplication',
+        // 'getParentWindow',
         'getState',
+        'getWebWindow',
         'getZoomLevel',
         'hide',
+        'isMainWindow',
         'isShowing',
         'joinGroup',
         'leaveGroup',
@@ -60,8 +76,13 @@ export class Window extends BaseApiClass{
         'navigate',
         'navigateBack',
         'navigateForward',
+        'on',
+        'once',
+        'prependListener',
+        'prependOnceListener',
         'reload',
-        'removeEventListener',
+        'removeAllListeners',
+        'removeListener',
         'resizeBy',
         'resizeTo',
         'restore',
@@ -70,76 +91,71 @@ export class Window extends BaseApiClass{
         'setZoomLevel',
         'show',
         'showAt',
+        'showDeveloperTools',
         'stopFlashing',
         'stopNavigation',
         'updateOptions',
     ];
 
 
-    static wrap(appUuid:string, windowName:string){
-        if (!windowRegistry[windowName]){
-            windowRegistry[windowName] = new Window({name:windowName},()=>{})
-        }
-        return windowRegistry[windowName];
-    }
-
-
-    static getCurrent(){
+    static async getCurrent():Promise<Window>{
         if (this._name){
             return windowRegistry[this._name];
         }else{
             Window._name='current-window-name';
-            return new Window({name:Window._name},()=>{});
+            return new Window({name:Window._name});
         }
     }
 
 
-    constructor(data:WindowOptions, callback?:Function) {
+    static getCurrentSync(){
+        if (this._name){
+            return windowRegistry[this._name];
+        }else{
+            Window._name='current-window-name';
+            return new Window({name:Window._name});
+        }
+    }
+
+
+    constructor(data:WindowOptions) {
         super();
         let opened;
         if (data && data.url){
             opened = window.open(data.url,'_blank');
         }
         this.contentWindow = opened || window;
-        this.name = data.name;
-        if (callback){
-            setTimeout(callback,0);
-        }
+        this.identity = {
+            uuid: window.name,
+            name: data.name,
+        };
         windowRegistry[data.name] = this;
     }
 
-    close(force?:boolean, callback?:Function,errorCallback?:Function){
-        try{
-            this.contentWindow.close();
-            if(callback){
-                callback();
-            }
-        }catch(error){
-            if (errorCallback){
-                errorCallback(error);
-            }
-        }
+    static async create(data:WindowOptions):Promise<Window>{
+        return new Window(data);
     }
 
-    getParentWindow(){
+    async close(force?:boolean):Promise<void>{
+        this.contentWindow.close();
+        return;
+    }
+
+    async getParentWindow():Promise<Window>{
         if (window.location.pathname==='/'){
             return this;
         }
-        return null;
     }
 
-    getBounds(success:(bounds:WindowBounds)=>void){
+    async getBounds():Promise<WindowBounds>{
 
         let result:any = {};
+        result.left = this.contentWindow.screenX;
+        result.top = this.contentWindow.screenY;
+        result.width = this.contentWindow.outerWidth;
+        result.height = this.contentWindow.outerHeight;
 
-        if (success){
-            result.left = this.contentWindow.screenX;
-            result.top = this.contentWindow.screenY;
-            result.width = this.contentWindow.outerWidth;
-            result.height = this.contentWindow.outerHeight;
-
-            success(result);
-        }
+        return result;
     }
 
 }

@@ -1,1 +1,1 @@
-export const VERSION:string = 'openfin-browser-adapter@0.35.20';
+export const VERSION:string = 'openfin-browser-adapter@1.0.0';
