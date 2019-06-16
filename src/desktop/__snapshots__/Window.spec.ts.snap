@@ -49,8 +49,4 @@ Array [
 ]
 `;
 
-exports[`Desktop::Window all unsupported static methods defined 1`] = `
-Array [
-  "wrap",
-]
-`;
+exports[`Desktop::Window all unsupported static methods defined 1`] = `Array []`;

@@ -4,6 +4,7 @@ exports[`Desktop::Notification all unsupported instance methods defined 1`] = `
 Array [
   "close",
   "sendMessage",
+  "show",
   "sendMessageToApplication",
 ]
 `;
