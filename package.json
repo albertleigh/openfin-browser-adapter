@@ -1,6 +1,6 @@
 {
   "name": "openfin-browser-adapter",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.25",
   "homepage": "https://www.albertli90.com/openfin-react-latest",
   "description": "browser mockup adapter for openfin js api",
   "keywords":["openfin","browser adapter","adapter","albert"],
@@ -12,7 +12,7 @@
     "build:es2015": "tsc",
     "build:es2015-prod": "tsc -p tsconfig.prod.json",
     "build:copy-files": "node ./scripts/copy-files.js",
-    "release-staging": "yarn build && npm publish build --registry=https://albertli.ddns.net:9004/repository/npm-private/",
+    "release-staging": "yarn build && npm publish build --registry=https://albertli.ddns.net:9004/repository/npm-private/ --tag beta",
     "test": "node scripts/test.js",
     "release":"yarn build-prod && npm publish build --access public"
   },

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desktop::Application all unsupported instance methods defined 1`] = `
+Array [
+  "addListener",
+  "getGroups",
+  "getInfo",
+  "getManifest",
+  "getParentUuid",
+  "getShortcuts",
+  "getTrayIconInfo",
+  "getWindow",
+  "getZoomLevel",
+  "isRunning",
+  "on",
+  "once",
+  "prependListener",
+  "prependOnceListener",
+  "quit",
+  "registerUser",
+  "removeAllListeners",
+  "removeListener",
+  "removeTrayIcon",
+  "restart",
+  "run",
+  "scheduleRestart",
+  "sendApplicationLog",
+  "setAppLogUsername",
+  "setShortcuts",
+  "setTrayIcon",
+  "setZoomLevel",
+  "terminate",
+]
+`;
+
+exports[`Desktop::Application all unsupported static methods defined 1`] = `
+Array [
+  "start",
+  "startFromManifest",
+  "wrap",
+]
+`;
+
+exports[`Desktop::Application getCurrent 1`] = `Promise {}`;
