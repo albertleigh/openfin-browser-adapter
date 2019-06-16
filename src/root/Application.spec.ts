@@ -32,15 +32,13 @@ describe('Desktop::Application',()=>{
 
         it('close succ',()=>{
             let succCb = jest.fn();
-            expect(instance.close(true,succCb,()=>{}));
-            expect(succCb).toHaveBeenCalled();
+            expect(instance.terminate(true));
         })
 
         it('getChildWindows succ',()=>{
             let succCb = jest.fn();
-            expect(instance.getChildWindows(succCb,()=>{}));
+            expect(instance.getChildWindows());
             jest.runAllTimers();
-            expect(succCb).toHaveBeenCalled();
         })
     })
 
